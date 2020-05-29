@@ -1,0 +1,39 @@
+spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+#      exclude: WEB-INF/**
+  thymeleaf:
+    cache: false # 开发时关闭缓存,不然没法看到实时页面
+    mode: LEGACYHTML5 # 用非严格的 HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  cache:
+    type: REDIS
+    redis:
+      cache-null-values: false
+  redis:
+    database: 0 #选0库，总共16个库
+    host: 139.9.69.99
+    port: 6379
+    password: vc040309@
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.9.69.99:3306/wjc?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&autoReconnect=true&serverTimezone=GMT%2B8
+    username: root
+    password: vc040309
+
+
+server:
+  port: 8080
+#mybatis:
+#  mapper-locations: classpath:mapper/mysql/*.xml
+#  config-location: classpath:mybatis-config.xml
+
+logging:
+  level:
+    com.weijinhui.pandabook: debug
+    org.springfromework.web: info
+    org.hibernate: error
